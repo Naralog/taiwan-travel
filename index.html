@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>타이베이 4박 5일 여행기 | 나라로그</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #5BA4CF;
+    --sky-light: #D6EAFA;
+    --cream: #FDF8F2;
+    --cream-dark: #F5EDE0;
+    --charcoal: #2C2C2C;
+    --lantern: #E8815A;
+    --lantern-light: #FAE5D8;
+    --sage: #C8DFC8;
+    --sage-dark: #7DAD7D;
+    --text-muted: #7A7A7A;
+    --border: #E8DDD0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1a3a5c 0%, #2e6fa0 45%, #5BA4CF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 60px 24px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: var(--cream);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+
+  /* 랜턴 장식 */
+  .lanterns {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+  .lantern {
+    position: absolute;
+    width: 18px;
+    border-radius: 40% 40% 50% 50%;
+    animation: sway 4s ease-in-out infinite;
+    opacity: 0.75;
+  }
+  .lantern::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 30px;
+    background: rgba(255,255,255,0.3);
+    margin: -4px auto 0;
+  }
+  @keyframes sway {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  .l1 { height:44px; background:#E8815A; top:5%; left:8%; animation-delay:0s; }
+  .l2 { height:36px; background:#d4603a; top:10%; left:15%; animation-delay:0.8s; }
+  .l3 { height:50px; background:#E8815A; top:3%; right:10%; animation-delay:1.2s; }
+  .l4 { height:38px; background:#c94f2a; top:12%; right:18%; animation-delay:0.4s; }
+  .l5 { height:42px; background:#E8815A; top:7%; left:50%; animation-delay:2s; }
+  .l6 { height:30px; background:#d4603a; top:15%; left:35%; animation-delay:1.6s; }
+  .l7 { height:46px; background:#E8815A; top:4%; right:35%; animation-delay:0.2s; }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(38px, 8vw, 72px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: #FAC9A8;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 420px;
+    margin-bottom: 40px;
+    line-height: 1.9;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  .hero-tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    letter-spacing: 2px;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+  .scroll-hint svg { opacity: 0.5; }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ── SCHEDULE TABLE ── */
+  .schedule-section {
+    padding: 64px 24px 56px;
+    background: var(--cream);
+  }
+
+  .schedule-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .xlsx-download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    border: 1.5px solid var(--sky);
+    color: var(--sky);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .xlsx-download-btn:hover {
+    background: var(--sky);
+    color: #fff;
+  }
+
+  .schedule-scroll {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    border: 1px solid var(--border);
+  }
+
+  .sched-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .sched-table thead tr {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .sched-table th {
+    padding: 13px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  .th-time { background: #E8E4DF; color: #555; min-width: 76px; }
+  .th-sun  { background: #F5C800; color: #5a3e00; min-width: 160px; }
+  .th-mon  { background: #F5C800; color: #5a3e00; min-width: 160px; }
+  .th-tue  { background: #F5C800; color: #5a3e00; min-width: 160px; }
+  .th-wed  { background: #F5C800; color: #5a3e00; min-width: 160px; }
+  .th-thu  { background: #F5C800; color: #5a3e00; min-width: 160px; border-right: none; }
+
+  .sched-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #E8DDD0;
+    border-bottom: 1px solid #EDE6DC;
+    line-height: 1.65;
+  }
+
+  .sched-table td:last-child { border-right: none; }
+
+  .td-time {
+    background: #F5F5F2;
+    color: #888;
+    font-size: 11px;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  .td-sun  { background: #FFF9E6; }
+  .td-mon  { background: #EEF5FB; }
+  .td-tue  { background: #FFF2EE; }
+  .td-wed  { background: #F0F7EE; }
+  .td-thu  { background: #F5F0FF; }
+
+  .td-sun.td-fill  { color: #8a5c00; font-weight: 500; }
+  .td-mon.td-fill  { color: #1a5a88; font-weight: 500; }
+  .td-tue.td-fill  { color: #b04020; font-weight: 500; }
+  .td-wed.td-fill  { color: #2d6a38; font-weight: 500; }
+  .td-thu.td-fill  { color: #5a2e90; font-weight: 500; }
+
+  /* ── OVERVIEW TABLE ── */
+  .section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    color: var(--charcoal);
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .day-card {
+    padding: 24px 16px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .day-card:last-child { border-right: none; }
+  .day-card:hover { background: var(--cream); }
+
+  .day-card .day-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--sky);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .day-card .day-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .day-card .day-place {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* ── PROMO BANNER ── */
+  .promo-banner {
+    background: linear-gradient(135deg, var(--lantern) 0%, #c94f2a 100%);
+    margin: 0 24px;
+    border-radius: 16px;
+    padding: 32px 36px;
+    max-width: 780px;
+    margin: 0 auto 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .promo-text { flex: 1; min-width: 200px; }
+  .promo-text strong {
+    display: block;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .promo-text p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+  }
+  .promo-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .promo-badge {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .day-entry {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 40px;
+    margin-bottom: 72px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .day-entry.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .day-stamp {
+    text-align: center;
+    padding-top: 4px;
+    position: relative;
+  }
+
+  .day-stamp::after {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: calc(100% - 52px + 72px);
+    background: var(--border);
+  }
+
+  .day-entry:last-child .day-stamp::after { display: none; }
+
+  .stamp-day {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--sky);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .stamp-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--sky);
+    color: #fff;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 auto;
+    box-shadow: 0 4px 16px rgba(91,164,207,0.35);
+  }
+
+  .day-body {}
+
+  .day-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.4;
+    padding-top: 8px;
+  }
+
+  .day-content {
+    font-size: 14.5px;
+    color: #4a4a4a;
+    line-height: 2;
+    white-space: pre-line;
+  }
+
+  .day-highlight {
+    background: var(--cream-dark);
+    border-left: 3px solid var(--lantern);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  .day-spots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .spot-tag {
+    background: var(--sky-light);
+    color: #2a6a9a;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    line-height: 2;
+  }
+  footer strong { color: var(--charcoal); font-weight: 500; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .overview-grid { grid-template-columns: repeat(3, 1fr); }
+    .day-card:nth-child(3) { border-right: none; }
+    .day-card:nth-child(4) { border-top: 1px solid var(--border); }
+    .day-card:nth-child(5) { border-top: 1px solid var(--border); border-right: none; }
+    .day-entry { grid-template-columns: 60px 1fr; gap: 0 20px; }
+    .promo-banner { padding: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lantern, .scroll-hint { animation: none; }
+    .day-entry { opacity: 1; transform: none; }
+  }
+
+  /* ── HOTELS SECTION ── */
+  .hotels-section {
+    background: var(--cream-dark);
+    padding: 72px 24px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .hotels-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .hotels-section .section-label { color: var(--lantern); }
+
+  .hotels-pick-guide {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 2;
+  }
+
+  .hotels-pick-guide strong { color: var(--charcoal); font-weight: 500; }
+
+  .hotels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .h-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+
+  .h-card-head {
+    padding: 24px 24px 20px;
+  }
+
+  .h-card-head.blue { background: linear-gradient(135deg, #2e6fa0 0%, #5BA4CF 100%); }
+  .h-card-head.warm { background: linear-gradient(135deg, #c94f2a 0%, #E8815A 100%); }
+
+  .h-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .h-card-head h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+
+  .h-card-head .h-name-en {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .h-info-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .h-info-cell {
+    padding: 13px 18px;
+    border-right: 1px solid var(--border);
+  }
+
+  .h-info-cell:last-child { border-right: none; }
+
+  .h-info-cell .hic-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+
+  .h-info-cell .hic-val {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.4;
+  }
+
+  .h-info-cell .hic-val.price {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    color: var(--lantern);
+  }
+
+  .h-features {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .h-feat-row {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .h-feat-row:last-child { margin-bottom: 0; }
+  .h-feat-icon { flex-shrink: 0; font-size: 13px; margin-top: 2px; }
+
+  .h-tags {
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+  }
+
+  .h-tag {
+    font-size: 11px;
+    padding: 4px 11px;
+    border-radius: 20px;
+  }
+
+  .h-tag.blue-t { background: #EBF4FB; color: #2a6a9a; border: 1px solid #c2dcf0; }
+  .h-tag.warm-t { background: #FDF0EA; color: #b5532e; border: 1px solid #f0cebb; }
+
+  .h-verdict {
+    padding: 14px 20px 18px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.85;
+  }
+
+  .h-book-btn {
+    display: block;
+    margin: 0 20px 20px;
+    text-align: center;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    color: #fff;
+  }
+
+  .h-book-btn:hover { opacity: 0.85; }
+  .h-book-btn.blue-b { background: var(--sky); }
+  .h-book-btn.warm-b { background: var(--lantern); }
+
+  @media (max-width: 600px) {
+    .hotels-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ── COUPON SECTION ── */
+  .coupon-section {
+    background: var(--cream);
+    padding: 64px 24px 72px;
+    border-top: 1px solid var(--border);
+  }
+
+  .coupon-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .coupon-section .section-label { color: var(--lantern); }
+  .coupon-section .section-title { color: var(--charcoal); margin-bottom: 8px; }
+
+  .coupon-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+
+  .coupon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .coupon-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 18px 18px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .coupon-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--lantern), #FAC9A8);
+  }
+
+  .coupon-amount {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--lantern);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .coupon-cond {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .coupon-code-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b0a89e;
+    margin-bottom: 6px;
+  }
+
+  .coupon-code-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .coupon-code {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--charcoal);
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    flex: 1;
+    letter-spacing: 0.5px;
+    font-family: monospace;
+  }
+
+  .copy-btn {
+    background: var(--lantern);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .copy-btn:hover { opacity: 0.85; }
+  .copy-btn.copied { background: var(--sage-dark); }
+
+  .coupon-expire {
+    font-size: 10.5px;
+    color: #b0a89e;
+    margin-top: 10px;
+  }
+
+  .coupon-how {
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+
+  .coupon-how strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  .coupon-cta {
+    display: block;
+    background: linear-gradient(135deg, var(--lantern) 0%, #c94f2a 100%);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s;
+  }
+
+  .coupon-cta:hover { opacity: 0.88; }
+
+  @media (max-width: 600px) {
+    .coupon-grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="lanterns">
+    <div class="lantern l1"></div>
+    <div class="lantern l2"></div>
+    <div class="lantern l3"></div>
+    <div class="lantern l4"></div>
+    <div class="lantern l5"></div>
+    <div class="lantern l6"></div>
+    <div class="lantern l7"></div>
+  </div>
+  <p class="hero-eyebrow">나라로그 여행기</p>
+  <h1 class="hero-title">타이베이<br><em>4박 5일</em></h1>
+  <p class="hero-sub">시먼딩부터 지우펀 홍등까지<br>처음 대만 여행이라면 이 코스면 충분합니다</p>
+  <div class="hero-tags">
+    <span class="hero-tag"># 대만 자유여행</span>
+    <span class="hero-tag"># 예스진지 투어</span>
+    <span class="hero-tag"># 타이베이101</span>
+    <span class="hero-tag"># 단수이 일몰</span>
+    <span class="hero-tag"># 지우펀</span>
+  </div>
+  <div class="scroll-hint">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 3v10M3 9l5 5 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    SCROLL
+  </div>
+</header>
+
+<!-- ── OVERVIEW ── -->
+<section class="section">
+  <p class="section-label">여행 일정 한눈에</p>
+  <h2 class="section-title">5일간의 타이베이 코스</h2>
+  <div class="overview-grid">
+    <div class="day-card">
+      <span class="day-num">DAY 1</span>
+      <span class="day-icon">🏮</span>
+      <p class="day-place">시먼딩<br>용산사</p>
+    </div>
+    <div class="day-card">
+      <span class="day-num">DAY 2</span>
+      <span class="day-icon">🌊</span>
+      <p class="day-place">예스진지<br>투어</p>
+    </div>
+    <div class="day-card">
+      <span class="day-num">DAY 3</span>
+      <span class="day-icon">🌅</span>
+      <p class="day-place">단수이</p>
+    </div>
+    <div class="day-card">
+      <span class="day-num">DAY 4</span>
+      <span class="day-icon">🗼</span>
+      <p class="day-place">중정기념당<br>타이베이101</p>
+    </div>
+    <div class="day-card">
+      <span class="day-num">DAY 5</span>
+      <span class="day-icon">✈️</span>
+      <p class="day-place">귀국</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROMO ── -->
+<div style="max-width:780px; margin:0 auto; padding: 0 24px 64px;">
+  <div class="promo-banner">
+    <div class="promo-text">
+      <strong>✈️ 대만 자유여행, 지금 예약이 유리해요</strong>
+      <p>트립닷컴 이벤트 진행 중<br>항공·호텔·투어 최대 50% 할인</p>
+    </div>
+    <div class="promo-badges">
+      <span class="promo-badge">항공권 최대 50%↓</span>
+      <span class="promo-badge">호텔 최대 50%↓</span>
+      <span class="promo-badge">투어·티켓 50%↓</span>
+      <span class="promo-badge">공항 픽업 할인</span>
+      <a href="https://3ha.in/r/498334" target="_blank" style="display:inline-block; background:#fff; color:#c94f2a; font-size:12px; font-weight:500; padding:6px 16px; border-radius:20px; text-decoration:none; margin-top:4px;">할인 혜택 확인하기 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCHEDULE TABLE ── -->
+<section class="schedule-section">
+  <div class="schedule-inner">
+    <p class="section-label" style="color:var(--sky);">전체 일정표</p>
+    <h2 class="section-title">5일 타이베이 시간표</h2>
+    <a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" download="타이베이_4박5일_일정표.xlsx" class="xlsx-download-btn">
+      📥 엑셀 파일 다운로드 (직접 수정 가능)
+    </a>
+    <div class="schedule-scroll">
+      <table class="sched-table">
+        <thead>
+          <tr>
+            <th class="th-time">시간</th>
+            <th class="th-sun">일요일</th>
+            <th class="th-mon">월요일</th>
+            <th class="th-tue">화요일</th>
+            <th class="th-wed">수요일</th>
+            <th class="th-thu">목요일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-time">8시</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">8시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu td-fill">아침 – 곱창국수, 행복당 버블티</td></tr>
+          <tr><td class="td-time">9시</td><td class="td-sun td-fill">[9시 5분] 비행기 출발</td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">9시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">10시</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu td-fill">[10시] 타오위안 공항 도착</td></tr>
+          <tr><td class="td-time">10시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">11시</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue td-fill">단수이역 도착</td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">11시 30분</td><td class="td-sun td-fill">[10시 55분] 타오위안 공항 도착<br>ATM 환전, 이지카드 찾고<br>MRT타고 시먼딩역 이동</td><td class="td-mon td-fill">[11시 30분] 시먼역 5번 출구 미팅 장소</td><td class="td-tue td-fill">점심 – 다크팔라스 돼지고기 덮밥</td><td class="td-wed td-fill">점심 – 하오지쉐이자오</td><td class="td-thu td-fill">[11시 55분] 타오위안 공항<br>비행기 출발</td></tr>
+          <tr><td class="td-time">12시</td><td class="td-sun"></td><td class="td-mon td-fill">타이베이역 출발</td><td class="td-tue td-fill">홍마오청<br>(10시·2시·4시 무료 가이드 투어)</td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">12시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">13시</td><td class="td-sun"></td><td class="td-mon td-fill">예류관광</td><td class="td-tue td-fill">진리대학교</td><td class="td-wed td-fill">중정기념당</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">13시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">14시</td><td class="td-sun td-fill">점심 – 푸훙 우육면</td><td class="td-mon"></td><td class="td-tue td-fill">스타벅스 흐어안먼시점</td><td class="td-wed td-fill">융캉제 일목일 버블티</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">14시 30분</td><td class="td-sun td-fill">행복당 버블티</td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed td-fill">소품샵 구경</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">15시</td><td class="td-sun"></td><td class="td-mon td-fill">[2시 50분] 스펀폭포 관광</td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">15시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu td-fill">[3시 35분] 인천공항 1터미널 도착</td></tr>
+          <tr><td class="td-time">16시</td><td class="td-sun"></td><td class="td-mon td-fill">[4시] 스펀관광</td><td class="td-tue td-fill">대만 카스테라 (빨간집)</td><td class="td-wed td-fill">딘타이펑 웨이팅 걸어두기</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">16시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed td-fill">타이베이 101 전망대</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">17시</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue td-fill">일몰 구경</td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">17시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed td-fill">저녁 - 딘타이펑</td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">18시</td><td class="td-sun td-fill">저녁 - 시먼딩 길거리 음식,<br>크리스피 밀크도넛</td><td class="td-mon td-fill">[5시 50분] 자우펀관람</td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">18시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">19시</td><td class="td-sun td-fill">용산사</td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">19시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">20시</td><td class="td-sun td-fill">우스란 밀크티</td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">20시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">21시</td><td class="td-sun"></td><td class="td-mon td-fill">라오허제야시장에서 하차</td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">21시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">22시</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+          <tr><td class="td-time">22시 30분</td><td class="td-sun"></td><td class="td-mon"></td><td class="td-tue"></td><td class="td-wed"></td><td class="td-thu"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+<hr class="divider">
+
+<!-- ── TIMELINE ── -->
+<section class="section" style="padding-bottom: 16px;">
+  <p class="section-label">여행 일기</p>
+  <h2 class="section-title">날마다 달랐던 타이베이</h2>
+</section>
+
+<div class="timeline-wrap">
+
+  <!-- DAY 1 -->
+  <div class="day-entry">
+    <div class="day-stamp">
+      <span class="stamp-day">Day</span>
+      <div class="stamp-num">1</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-title">대만 첫날, 시먼딩과 용산사</h3>
+      <p class="day-content">새벽 5시 30분에 출발해 오전 9시 5분 비행기를 탔습니다. 타오위안 공항에 내리자마자 ATM 환전과 이지카드를 챙기고 MRT로 시먼역으로 이동했는데 생각보다 어렵지 않았어요.
+
+첫 식사는 많은 후기에 등장하는 푸훙 우육면이었습니다. 국물이 진하고 고기가 부드러워 기대 이상이었어요. 이후 행복당 버블티와 크리스피 밀크도넛을 먹으며 시먼딩 거리를 구경했는데, 분위기가 우리나라 명동과 비슷하면서도 대만 특유의 활기가 있었어요.</p>
+      <div class="day-highlight">
+        저녁에 방문한 용산사는 밤에 훨씬 멋있었어요. 화려한 건축물과 향 냄새가 어우러져 대만 분위기를 제대로 느낄 수 있었습니다. 꼭 밤에 방문해보세요.
+      </div>
+      <div class="day-spots">
+        <span class="spot-tag">🚇 MRT 시먼역</span>
+        <span class="spot-tag">🍜 푸훙 우육면</span>
+        <span class="spot-tag">🧋 행복당 버블티</span>
+        <span class="spot-tag">🏮 용산사 (야간)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-entry">
+    <div class="day-stamp">
+      <span class="stamp-day">Day</span>
+      <div class="stamp-num">2</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-title">대만 여행의 핵심, 예스진지 투어</h3>
+      <p class="day-content">대만 여행에서 가장 유명한 일정, 예스진지입니다. 예류·스펀·진과스·지우펀을 하루에 둘러보는 코스인데, 처음 대만 여행이라면 투어를 강력 추천합니다.
+
+예류에서는 유명한 여왕머리 바위를 보고, 스펀에서는 폭포 풍경을 감상하며 천등 날리기도 체험했습니다. 그리고 많은 사람들이 기대하는 지우펀!</p>
+      <div class="day-highlight">
+        해 질 무렵 지우펀 골목에 불이 하나둘 켜지는 풍경이 정말 아름다웠어요. 대만 여행 후기에서 지우펀 이야기가 빠지지 않는 이유를 직접 느꼈습니다.
+      </div>
+      <p class="day-content">투어 후에는 라오허제 야시장에서 하차해 야시장 음식까지 즐기며 하루를 마무리했어요.</p>
+      <div class="day-spots">
+        <span class="spot-tag">🪨 예류 여왕머리 바위</span>
+        <span class="spot-tag">🏮 스펀 천등 날리기</span>
+        <span class="spot-tag">🌆 지우펀 야경</span>
+        <span class="spot-tag">🍢 라오허제 야시장</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-entry">
+    <div class="day-stamp">
+      <span class="stamp-day">Day</span>
+      <div class="stamp-num">3</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-title">가장 여유로웠던 날, 단수이</h3>
+      <p class="day-content">셋째 날은 단수이로 향했습니다. 이번 여행에서 개인적으로 가장 여유로웠던 날이에요.
+
+점심으로 다크팔라스 돼지고기 덮밥을 먹고 홍마오청과 진리대학교를 둘러봤습니다. 오르막길이 꽤 더웠지만, 홍마오청은 규모가 크고 역사적인 이야기가 많아 기대 이상이었어요. 스타벅스 흐어안먼시점도 방문했는데 전망이 좋아 많은 사람들이 찾는 이유를 알 수 있었어요.</p>
+      <div class="day-highlight">
+        단수이 강변에 앉아 노을이 지는 모습을 바라보는데, 여행을 왔다는 느낌이 물씬 들었어요. 잔디에 앉아 노래를 들었던 그 평화로운 풍경이 아직도 생각이 납니다. 다시 대만에 간다면 단수이는 꼭 다시 가고 싶어요.
+      </div>
+      <div class="day-spots">
+        <span class="spot-tag">🏯 홍마오청</span>
+        <span class="spot-tag">☕ 스타벅스 전망점</span>
+        <span class="spot-tag">🌇 단수이 일몰</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-entry">
+    <div class="day-stamp">
+      <span class="stamp-day">Day</span>
+      <div class="stamp-num">4</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-title">중정기념당부터 타이베이101 야경까지</h3>
+      <p class="day-content">넷째 날은 중정기념당으로 시작했습니다. 넓은 광장과 웅장한 건물이 인상적이고 사진 찍기에도 좋은 곳이에요.
+
+이후 융캉제로 이동해 일목일 버블티를 마시고 소품샵을 구경하며 여유로운 시간을 보냈어요. 걷는 것만으로도 즐거운 거리였습니다. 저녁에는 딘타이펑 웨이팅을 걸어두고 타이베이101 전망대로 향했어요.</p>
+      <div class="day-highlight">
+        타이베이101 전망대에서 내려다본 야경은 이번 여행 최고의 순간이었어요. 도시 전체가 한눈에 보이는 풍경에 진짜로 멍 때렸습니다. 그리고 딘타이펑에서 저녁을 먹으며 완벽한 하루를 마무리했어요.
+      </div>
+      <div class="day-spots">
+        <span class="spot-tag">🏛️ 중정기념당</span>
+        <span class="spot-tag">🧋 융캉제</span>
+        <span class="spot-tag">🗼 타이베이101 전망대</span>
+        <span class="spot-tag">🥟 딘타이펑</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-entry">
+    <div class="day-stamp">
+      <span class="stamp-day">Day</span>
+      <div class="stamp-num">5</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-title">마지막 날, 아쉬운 작별</h3>
+      <p class="day-content">마지막 날 아침은 곱창국수와 행복당 버블티로 시작했습니다. 꼭 먹고 싶어서 일찍 일어나 굳이 시먼딩까지 다시 갔어요.</p>
+      <div class="day-highlight">
+        짧지만 알찼던 타이베이 4박 5일이 끝나는 순간이라 조금 아쉬웠어요. 오전 11시 55분 비행기를 타고 인천으로 돌아오면서 여행이 마무리됐습니다.
+      </div>
+      <div class="day-spots">
+        <span class="spot-tag">🍜 곱창국수</span>
+        <span class="spot-tag">🧋 행복당 버블티</span>
+        <span class="spot-tag">✈️ 타오위안 공항 귀국</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── HOTELS ── -->
+<section class="hotels-section">
+  <div class="hotels-inner">
+    <p class="section-label">숙소 추천</p>
+    <h2 class="section-title">직접 묵어본 타이베이 숙소 2곳</h2>
+
+    <div class="hotels-pick-guide">
+      <strong>여행 중심지 바로 옆, 이동 편하게</strong> → 소테츠 그랜드 프레사<br>
+      <strong>넓고 조용하게, 수영장까지 호캉스</strong> → 시저파크 반차오
+    </div>
+
+    <div class="hotels-grid">
+
+      <!-- 소테츠 -->
+      <div class="h-card">
+        <div class="h-card-head blue">
+          <span class="h-badge">시먼딩 중심</span>
+          <h3>소테츠 그랜드 프레사<br>타이베이</h3>
+          <p class="h-name-en">Sotetsu Grand Fresa Taipei</p>
+        </div>
+        <div class="h-info-bar">
+          <div class="h-info-cell">
+            <p class="hic-label">위치</p>
+            <p class="hic-val">MRT 시먼역<br>도보 1분</p>
+          </div>
+          <div class="h-info-cell">
+            <p class="hic-label">가격대</p>
+            <p class="hic-val price">시즌별 상이</p>
+          </div>
+        </div>
+        <div class="h-features">
+          <div class="h-feat-row"><span class="h-feat-icon">📍</span><span>시먼딩 메인 횡단보도 바로 앞, 관광·맛집 모두 도보권</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🏨</span><span>신축 깔끔한 화이트+우드 인테리어, 통창 시먼딩 시티뷰</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🔌</span><span>침대 양쪽 콘센트·USB, 블루투스 스피커 내장 컨트롤러</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🧺</span><span>코인 세탁실·셀프 락커·셀프 체크인 (장기 여행 편리)</span></div>
+        </div>
+        <div class="h-tags">
+          <span class="h-tag blue-t">동선 중요한 분</span>
+          <span class="h-tag blue-t">신축 선호</span>
+          <span class="h-tag blue-t">야경 뷰</span>
+          <span class="h-tag blue-t">단기 3~4박</span>
+        </div>
+        <p class="h-verdict">"하루 일정 끝나고 숙소 바로 들어갈 수 있는 거리가 생각보다 엄청 편하다. 위치 하나만으로 여행 만족도가 달라지는 곳."</p>
+        <a href="https://3ha.in/r/441491" target="_blank" class="h-book-btn blue-b">최저가 예약하기 →</a>
+      </div>
+
+      <!-- 시저파크 -->
+      <div class="h-card">
+        <div class="h-card-head warm">
+          <span class="h-badge">반차오 5성급</span>
+          <h3>시저파크 호텔<br>반차오</h3>
+          <p class="h-name-en">Caesar Park Hotel Banqiao</p>
+        </div>
+        <div class="h-info-bar">
+          <div class="h-info-cell">
+            <p class="hic-label">위치</p>
+            <p class="hic-val">반차오역<br>MRT·기차·고속철</p>
+          </div>
+          <div class="h-info-cell">
+            <p class="hic-label">가격대</p>
+            <p class="hic-val price">1박 15만원대~</p>
+          </div>
+        </div>
+        <div class="h-features">
+          <div class="h-feat-row"><span class="h-feat-icon">🏊</span><span>루프탑 수영장 — 낮·밤 분위기 달라 호캉스 느낌 제대로</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🛏️</span><span>대형 캐리어 여러 개도 공간 남는 넓은 객실, 통창 시티뷰</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🥤</span><span>냉장고 음료 무료, 캡슐커피 머신·전기포트 구비</span></div>
+          <div class="h-feat-row"><span class="h-feat-icon">🚇</span><span>시먼딩까지 MRT 약 10분 (3정거장), 이동 어렵지 않음</span></div>
+        </div>
+        <div class="h-tags">
+          <span class="h-tag warm-t">호캉스</span>
+          <span class="h-tag warm-t">수영장 있는 호텔</span>
+          <span class="h-tag warm-t">5성급</span>
+          <span class="h-tag warm-t">넓은 객실</span>
+        </div>
+        <p class="h-verdict">"시먼딩보다 조용한 신도시 분위기. 5성급 치고 가격 대비 만족도 높은 편이고, 수영장은 꼭 이용해볼 것."</p>
+        <a href="https://3ha.in/r/477221" target="_blank" class="h-book-btn warm-b">최저가 예약하기 →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COUPON ── -->
+<section class="coupon-section">
+  <div class="coupon-inner">
+    <p class="section-label">할인 혜택</p>
+    <h2 class="section-title">클룩 할인 쿠폰 모음 🎟</h2>
+    <p class="coupon-desc">타이베이 여행 준비할 때 클룩에서 투어·입장권을 예약하면<br>아래 쿠폰으로 추가 할인받을 수 있어요. 결제 직전 쿠폰 코드를 입력하면 끝!</p>
+
+    <div class="coupon-grid">
+
+      <div class="coupon-card">
+        <p class="coupon-amount">1,500원</p>
+        <p class="coupon-cond">5만원 이상 구매 시</p>
+        <p class="coupon-code-label">쿠폰 코드</p>
+        <div class="coupon-code-row">
+          <span class="coupon-code">세시간전26001</span>
+          <button class="copy-btn" onclick="copyCode(this, '세시간전26001')">복사</button>
+        </div>
+        <p class="coupon-expire">~2026년 6월 30일</p>
+      </div>
+
+      <div class="coupon-card">
+        <p class="coupon-amount">3,000원</p>
+        <p class="coupon-cond">10만원 이상 구매 시</p>
+        <p class="coupon-code-label">쿠폰 코드</p>
+        <div class="coupon-code-row">
+          <span class="coupon-code">세시간전26002</span>
+          <button class="copy-btn" onclick="copyCode(this, '세시간전26002')">복사</button>
+        </div>
+        <p class="coupon-expire">~2026년 6월 30일</p>
+      </div>
+
+      <div class="coupon-card">
+        <p class="coupon-amount">7,000원</p>
+        <p class="coupon-cond">30만원 이상 구매 시</p>
+        <p class="coupon-code-label">쿠폰 코드</p>
+        <div class="coupon-code-row">
+          <span class="coupon-code">세시간전26003</span>
+          <button class="copy-btn" onclick="copyCode(this, '세시간전26003')">복사</button>
+        </div>
+        <p class="coupon-expire">~2026년 6월 30일</p>
+      </div>
+
+    </div>
+
+    <div class="coupon-how">
+      <strong>💡 사용 방법</strong> — 클룩 앱 또는 웹에서 원하는 상품을 담고, 결제 화면에서 쿠폰 코드를 입력하면 자동 적용됩니다.<br>
+      ※ 쿠폰은 계정당 1회 사용 가능 / 일부 상품 제외 / 예산 소진 시 사용 불가
+    </div>
+
+    <a href="https://3ha.in/r/478752" target="_blank" class="coupon-cta">
+      🎫 클룩에서 타이베이 투어 · 입장권 보기 →
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <strong>나라로그</strong><br>
+  실제 다녀온 여행자의 솔직한 기록입니다<br>
+  © 2025 나라로그 · Naralog
+</footer>
+
+<script>
+  // 쿠폰 코드 복사
+  function copyCode(btn, code) {
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '완료 ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // Scroll reveal
+  const entries = document.querySelectorAll('.day-entry');
+  const observer = new IntersectionObserver((obs) => {
+    obs.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  entries.forEach(e => observer.observe(e));
+</script>
+</body>
+</html>
